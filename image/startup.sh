@@ -16,4 +16,7 @@ fi
 
 cd /usr/lib/web && ./run.py > /var/log/web.log 2>&1 &
 nginx -c /etc/nginx/nginx.conf
-exec /bin/tini -- /usr/bin/supervisord -n
+exec /bin/tini -- /usr/bin/supervisord -n &
+
+source "/opt/ros/$ROS_DISTRO/setup.bash"
+roscore

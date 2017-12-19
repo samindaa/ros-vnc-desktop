@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-MAINTAINER Doro Wu <fcwu.tw@gmail.com>
+FROM ros:latest
+MAINTAINER Daniel <team6612@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -39,8 +39,10 @@ RUN chmod +x /bin/tini
 ADD image /
 RUN pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt
 
+RUN ["/bin/bash", "-c", "echo '. /opt/ros/$ROS_DISTRO/setup.bash' >> /root/.bashrc"] 
+
 EXPOSE 80
 WORKDIR /root
-ENV HOME=/home/ubuntu \
+ENV HOME=/root \
     SHELL=/bin/bash
 ENTRYPOINT ["/startup.sh"]
