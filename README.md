@@ -3,7 +3,9 @@ ros-vnc-desktop
 
 Modified from '[fcwu/docker-ubuntu-vnc-desktop](https://github.com/fcwu/docker-ubuntu-vnc-desktop)'
 
-Docker image to provide HTML5 VNC interface with ros preinstalled
+Docker image to provide HTML5 VNC interface with ros preinstalled.
+
+This image will start `roscore` automatically during startup.
 
 Quick Start
 -------------------------
