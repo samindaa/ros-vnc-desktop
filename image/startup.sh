@@ -19,4 +19,5 @@ nginx -c /etc/nginx/nginx.conf
 exec /bin/tini -- /usr/bin/supervisord -n &
 
 source "/opt/ros/$ROS_DISTRO/setup.bash"
-roscore
+#roscore
+/bin/bash

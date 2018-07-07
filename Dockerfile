@@ -28,6 +28,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
+RUN rm -f /etc/apt/sources.list.d/arc-theme.list
 
 # tini for subreap                                   
 ENV TINI_VERSION v0.9.0
@@ -42,7 +43,14 @@ RUN ["/bin/bash", "-c", "echo '. /opt/ros/$ROS_DISTRO/setup.bash' >> /root/.bash
 RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthenticated \
   		      ros-kinetic-xacro \
 		      ros-kinetic-gazebo-ros \
-                      ros-kinetic-controller-manager 
+              ros-kinetic-controller-manager
+
+RUN apt-get install -y --no-install-recommends --allow-unauthenticated vim terminator wget
+
+RUN sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthenticated \
+                      gazebo7 libignition-math2-dev               
 
 EXPOSE 80
 WORKDIR /root
