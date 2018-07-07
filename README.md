@@ -5,7 +5,7 @@ Modified from '[team6612/ros-vnc-desktop](https://github.com/team6612/ros-vnc-de
 
 Docker image to provide HTML5 VNC interface with __ros:kinetic__ preinstalled.
 
-Compatible with Udacity Robotic Software Engineer Nano Degree lessons and projects. 
+Compatible with Udacity Robotic Software Engineer Nano Degree lectures and projects. 
 
 
 ```
