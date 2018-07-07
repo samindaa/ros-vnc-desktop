@@ -43,7 +43,8 @@ RUN ["/bin/bash", "-c", "echo '. /opt/ros/$ROS_DISTRO/setup.bash' >> /root/.bash
 RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthenticated \
   		      ros-kinetic-xacro \
 		      ros-kinetic-gazebo-ros \
-              ros-kinetic-controller-manager
+              ros-kinetic-controller-manager \
+              ros-kinetic-rqt-image-view
 
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated vim terminator wget
 
