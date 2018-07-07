@@ -1,4 +1,4 @@
-ros-vnc-desktop (Udacity Robotic Software Engineer Nano Degree)
+ros-vnc-desktop (for Udacity Robotic Software Engineer Nano Degree)
 =========================
 
 Modified from '[team6612/ros-vnc-desktop](https://github.com/team6612/ros-vnc-desktop)'.
