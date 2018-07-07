@@ -14,3 +14,5 @@ docker run -v <local_ws>:/catkin_ws -it -p 6080:80 robond
 ```
 
 Browse http://127.0.0.1:6080/
+
+![Image](html5.png)
