@@ -1,9 +1,7 @@
-FROM ros:latest
-MAINTAINER Daniel <team6612@gmail.com>
+FROM ros:kinetic
+MAINTAINER Saminda <samindaa@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN sed -i 's#http://archive.ubuntu.com/#http://tw.archive.ubuntu.com/#' /etc/apt/sources.list
 
 # built-in packages
 RUN apt-get update \
@@ -26,8 +24,8 @@ RUN apt-get update \
         mesa-utils libgl1-mesa-dri \
         gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine pinta arc-theme \
         dbus-x11 x11-utils \
-    && apt-get autoclean \
-    && apt-get autoremove \
+    && apt-get autoclean -y \
+    && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/*
 
 
@@ -40,6 +38,11 @@ ADD image /
 RUN pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt
 
 RUN ["/bin/bash", "-c", "echo '. /opt/ros/$ROS_DISTRO/setup.bash' >> /root/.bashrc"] 
+
+RUN apt-get update && apt-get install -y --no-install-recommends --allow-unauthenticated \
+  		      ros-kinetic-xacro \
+		      ros-kinetic-gazebo-ros \
+                      ros-kinetic-controller-manager 
 
 EXPOSE 80
 WORKDIR /root
